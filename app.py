@@ -1,10 +1,9 @@
 """
-TLCDAT — Troy Lab Coastal Diffraction Analysis Tool (web edition)
-A free, no-code coastal-engineering calculator.  Streamlit front-end over
+TLCDAT — Troy Lab Coastal Diffraction Analysis Tool
+A no-code coastal-engineering calculator.  Streamlit front-end over
 coastal_core.py.  Run locally with:   streamlit run app.py
-Deploy free on Streamlit Community Cloud (see README).
 
-Purdue University · Lyles School of Civil & Construction Engineering 
+Purdue University · Lyles School of Civil & Construction Engineering
 """
 import numpy as np
 import matplotlib
@@ -33,8 +32,8 @@ h1, h2, h3 {{color: {PURDUE};}}
 </style>""", unsafe_allow_html=True)
 
 st.title("🌊 TLCDAT — Coastal Diffraction Analysis Tool")
-st.caption("Troy Lab · Purdue University (Lyles School of Civil & Construction Engineering) · "
-           "free wave-transformation calculators for coastal design.")
+st.caption("Troy Lab · Purdue University, Lyles School of Civil & Construction Engineering  —  "
+           "analytical wave-transformation and diffraction calculators for coastal design.")
 
 def heatmap(xs, ys, Z, title, xlabel="lateral y (m)", ylabel="into basin x (m)",
             marks=None, vmax=1.2, beam_slope=None):
@@ -67,7 +66,7 @@ with tabs[0]:
         res = cc.wavelength_methods(T, d)
         rows = [{"Method": k, "L (m)": round(v[0], 3), "error vs exact (%)": round(v[1], 3)}
                 for k, v in res.items()]
-        st.dataframe(rows, width="stretch", hide_index=True)
+        st.dataframe(rows, hide_index=True)
         st.metric("Deep-water wavelength L₀ (m)", f"{cc.deep_L0(T):.2f}")
         st.info("The **Iteration** value is the exact linear-theory solution "
                 "(L = L₀·tanh(2πd/L)). Hunt, Fenton, Guo and You are explicit approximations — "
@@ -138,7 +137,8 @@ with tabs[2]:
         ax.set_xlabel("distance behind structure x (m)"); ax.set_ylabel("K (centre)")
         ax.set_title("Centreline behind breakwater", fontsize=9)
         st.pyplot(fig)
-        st.caption("Two breakwater tips, coherent (phase-aware) superposition of Wiegel end ")
+        st.caption("Two breakwater tips: coherent (phase-aware) superposition of Wiegel "
+                   "end diffraction.")
         st.download_button("📄 Download PDF report",
                            data=make_pdf("breakwater", T, d, B, ang, refl, xmax, ymax),
                            file_name="TLCDAT_breakwater_report.pdf", mime="application/pdf",
@@ -247,8 +247,9 @@ with tabs[4]:
 with tabs[5]:
     st.subheader("Method & references")
     st.markdown("""
-**What this is.** A free Troy-Lab coastal diffraction tool, plus a
-new continuous **entrance-gap** calculator. Everything runs from one clean Python core  no license.
+**What this is.** A set of analytical wave-transformation and diffraction calculators for
+preliminary coastal design, including a continuous **entrance-gap** module. All modules run from
+one clean, self-contained computational core.
 
 **Methods**
 - *Wavelength* — exact linear dispersion by iteration; Hunt (1979), Fenton & McKee (1990),
@@ -271,4 +272,4 @@ lossless, |Ra|²+|Ta|²=1). Breakwater/dock modules assume rigid arms.
 **References** — Penney & Price (1952); Wiegel (1962); SPM (1984) §2; Kriebel & Cox;
 Bowen & McIver (2002); Abramowitz & Stegun (1964) §7.3.
 """)
-    st.caption("Prepared by M. N. Sahvelet & C. D. Troy (Troy Lab, Purdue) ")
+    st.caption("Developed by M. N. Sahvelet and C. D. Troy, Troy Lab, Purdue University.")

@@ -1,7 +1,7 @@
 """
 coastal_core.py  —  Troy Lab Coastal Diffraction Analysis Tool (TLCDAT)
-Pure-Python engineering core.  Ported faithfully from
-
+Pure-Python engineering core.  Implements classical wave-transformation and
+diffraction formulations, extended with a continuous Fresnel gap solver.
 
 Modules:
   1. Dispersion / wavelength   (Newton + Hunt, Fenton, Guo, You approximations)
@@ -10,7 +10,7 @@ Modules:
   4. Dock transmission          (Kriebel/Cox Kt + combined dock response)
   5. Entrance gap diffraction   (Fresnel / Kirchhoff single-slit — SPM Fig 2-44..2-52)
 
-Authors: M. N. Sahvelet & C. D. Troy Ph.D. (Troy Lab, Purdue University).
+Authors: M. N. Sahvelet and C. D. Troy, Troy Lab, Purdue University.
 """
 import numpy as np
 

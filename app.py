@@ -247,7 +247,7 @@ with tabs[4]:
 with tabs[5]:
     st.subheader("Method & references")
     st.markdown("""
-**What this is.** A free Troy-Lab coastal spreadsheet, plus a
+**What this is.** A free Troy-Lab coastal diffraction tool, plus a
 new continuous **entrance-gap** calculator. Everything runs from one clean Python core  no license.
 
 **Methods**

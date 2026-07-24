@@ -1,7 +1,6 @@
 # TLCDAT — Troy Lab Coastal Diffraction Analysis Tool (web edition)
 
-A **free, no-code, macro-free** coastal-engineering calculator. It re-builds the Edgewater /
-Troy-Lab Excel workbook in clean Python and adds a new continuous **entrance-gap** calculator.
+A free, coastal-engineering diffractio calculator.
 No MATLAB, no VBA, no license.
 
 **Five modules**

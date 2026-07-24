@@ -47,7 +47,7 @@ def build_pdf(module_title, inputs, results, draw, note):
                           color="0.7", lw=0.8))
     fig.text(0.06, 0.055, "Method: " + note, fontsize=7.3, color="0.25", wrap=True)
     fig.text(0.06, 0.022, "Prepared with TLCDAT by M. N. Sahvelet & C. D. Troy (Troy Lab, Purdue) "
-                          "for Edgewater Resources — free, macro-free.", fontsize=7, color=EDGE)
+                          "for Coastal Engineers — free,.", fontsize=7, color=EDGE)
     buf = io.BytesIO()
     fig.savefig(buf, format="pdf")
     plt.close(fig)
@@ -120,7 +120,7 @@ def pdf_breakwater(T, d, B, ang, refl, xmax, ymax):
         ax.tick_params(labelsize=7); ax.set_title("Centreline behind breakwater", fontsize=9)
 
     note = ("Wiegel (1962) K′ diffraction table with coherent two-tip end-diffraction "
-            "superposition (SPM guidance) — the original workbook's method, macro-free.")
+            "superposition (SPM guidance) .")
     return build_pdf("Detached Breakwater Diffraction Report", inp, res, draw, note)
 
 

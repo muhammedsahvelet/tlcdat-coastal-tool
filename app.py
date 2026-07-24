@@ -138,8 +138,7 @@ with tabs[2]:
         ax.set_xlabel("distance behind structure x (m)"); ax.set_ylabel("K (centre)")
         ax.set_title("Centreline behind breakwater", fontsize=9)
         st.pyplot(fig)
-        st.caption("Two breakwater tips, coherent (phase-aware) superposition of Wiegel end "
-                   "diffraction — this is Jack's original method, reproduced macro-free.")
+        st.caption("Two breakwater tips, coherent (phase-aware) superposition of Wiegel end ")
         st.download_button("📄 Download PDF report",
                            data=make_pdf("breakwater", T, d, B, ang, refl, xmax, ymax),
                            file_name="TLCDAT_breakwater_report.pdf", mime="application/pdf",

@@ -4,7 +4,7 @@ A free, no-code coastal-engineering calculator.  Streamlit front-end over
 coastal_core.py.  Run locally with:   streamlit run app.py
 Deploy free on Streamlit Community Cloud (see README).
 
-Purdue University · Lyles School of Civil & Construction Engineering · Edgewater Resources
+Purdue University · Lyles School of Civil & Construction Engineering 
 """
 import numpy as np
 import matplotlib
@@ -34,7 +34,7 @@ h1, h2, h3 {{color: {PURDUE};}}
 
 st.title("🌊 TLCDAT — Coastal Diffraction Analysis Tool")
 st.caption("Troy Lab · Purdue University (Lyles School of Civil & Construction Engineering) · "
-           "Edgewater Resources   —   free, macro-free wave-transformation calculators for coastal design.")
+           "free wave-transformation calculators for coastal design.")
 
 def heatmap(xs, ys, Z, title, xlabel="lateral y (m)", ylabel="into basin x (m)",
             marks=None, vmax=1.2, beam_slope=None):
@@ -248,9 +248,8 @@ with tabs[4]:
 with tabs[5]:
     st.subheader("Method & references")
     st.markdown("""
-**What this is.** A free, macro-free re-build of the Edgewater/Troy-Lab coastal spreadsheet, plus a
-new continuous **entrance-gap** calculator. Everything runs from one clean Python core — no MATLAB,
-no VBA, no license.
+**What this is.** A free Troy-Lab coastal spreadsheet, plus a
+new continuous **entrance-gap** calculator. Everything runs from one clean Python core  no license.
 
 **Methods**
 - *Wavelength* — exact linear dispersion by iteration; Hunt (1979), Fenton & McKee (1990),
@@ -273,4 +272,4 @@ lossless, |Ra|²+|Ta|²=1). Breakwater/dock modules assume rigid arms.
 **References** — Penney & Price (1952); Wiegel (1962); SPM (1984) §2; Kriebel & Cox;
 Bowen & McIver (2002); Abramowitz & Stegun (1964) §7.3.
 """)
-    st.caption("Prepared by M. N. Sahvelet & C. D. Troy (Troy Lab, Purdue) for Edgewater Resources.")
+    st.caption("Prepared by M. N. Sahvelet & C. D. Troy (Troy Lab, Purdue) ")

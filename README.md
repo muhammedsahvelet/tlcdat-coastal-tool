@@ -77,4 +77,4 @@ and opens the browser, but stlite gives the cleaner, license-free, no-install re
 - Abramowitz & Stegun (1964) §7.3 — Fresnel integrals
 
 Prepared by **M. N. Sahvelet & C. D. Troy** (Troy Lab, Purdue University, Lyles School of Civil &
-Construction Engineering) for **Edgewater Resources**.
+Construction Engineering) 

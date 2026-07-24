@@ -1,7 +1,7 @@
 # TLCDAT — Troy Lab Coastal Diffraction Analysis Tool (web edition)
 
 A free, coastal-engineering diffractio calculator.
-No MATLAB, no VBA, no license.
+
 
 **Five modules**
 1. **Wavelength / dispersion** — exact iteration + Hunt, Fenton, Guo, You approximations.

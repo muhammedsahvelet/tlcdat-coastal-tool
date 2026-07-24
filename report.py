@@ -33,7 +33,7 @@ def build_pdf(module_title, inputs, results, draw, note):
     fig.text(0.06, 0.936, module_title, fontsize=13, fontweight="bold", color="black")
     fig.text(0.94, 0.958, "Troy Lab · Purdue University", ha="right", fontsize=8, color="0.35")
     fig.text(0.94, 0.944, "Lyles School of Civil & Construction Eng.", ha="right", fontsize=7.5, color="0.45")
-    fig.text(0.94, 0.916, datetime.date.today().isoformat(), ha="right", fontsize=8, color="0.45")
+    fig.text(0.94, 0.930, datetime.date.today().isoformat(), ha="right", fontsize=8, color="0.45")
     fig.add_artist(Line2D([0.06, 0.94], [0.905, 0.905], transform=fig.transFigure,
                           color=PUR, lw=1.6))
     # inputs (left) + results (right)
@@ -45,8 +45,8 @@ def build_pdf(module_title, inputs, results, draw, note):
     fig.add_artist(Line2D([0.06, 0.94], [0.075, 0.075], transform=fig.transFigure,
                           color="0.7", lw=0.8))
     fig.text(0.06, 0.055, "Method: " + note, fontsize=7.3, color="0.25", wrap=True)
-    fig.text(0.06, 0.022, "Prepared with TLCDAT by M. N. Sahvelet & C. D. Troy (Troy Lab, Purdue) "
-                          "for Coastal Engineers — free,.", fontsize=7, color=EDGE)
+    fig.text(0.06, 0.022, "Generated with TLCDAT — M. N. Sahvelet and C. D. Troy, "
+                          "Troy Lab, Purdue University.", fontsize=7, color=EDGE)
     buf = io.BytesIO()
     fig.savefig(buf, format="pdf")
     plt.close(fig)
@@ -118,8 +118,8 @@ def pdf_breakwater(T, d, B, ang, refl, xmax, ymax):
         ax.set_xlabel("x behind structure (m)", fontsize=8); ax.set_ylabel("K (centre)", fontsize=8)
         ax.tick_params(labelsize=7); ax.set_title("Centreline behind breakwater", fontsize=9)
 
-    note = ("Wiegel (1962) K′ diffraction table with coherent two-tip end-diffraction "
-            "superposition (SPM guidance) .")
+    note = ("Wiegel (1962) K' diffraction table with coherent two-tip end-diffraction "
+            "superposition (SPM guidance).")
     return build_pdf("Detached Breakwater Diffraction Report", inp, res, draw, note)
 
 

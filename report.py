@@ -33,7 +33,6 @@ def build_pdf(module_title, inputs, results, draw, note):
     fig.text(0.06, 0.936, module_title, fontsize=13, fontweight="bold", color="black")
     fig.text(0.94, 0.958, "Troy Lab · Purdue University", ha="right", fontsize=8, color="0.35")
     fig.text(0.94, 0.944, "Lyles School of Civil & Construction Eng.", ha="right", fontsize=7.5, color="0.45")
-    fig.text(0.94, 0.930, "Edgewater Resources", ha="right", fontsize=8, color="0.35")
     fig.text(0.94, 0.916, datetime.date.today().isoformat(), ha="right", fontsize=8, color="0.45")
     fig.add_artist(Line2D([0.06, 0.94], [0.905, 0.905], transform=fig.transFigure,
                           color=PUR, lw=1.6))

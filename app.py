@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import coastal_core as cc
 import report
+import cad_export as ce
 
 @st.cache_data(show_spinner=False)
 def make_pdf(kind, *args):
@@ -143,6 +144,15 @@ with tabs[2]:
                            data=make_pdf("breakwater", T, d, B, ang, refl, xmax, ymax),
                            file_name="TLCDAT_breakwater_report.pdf", mime="application/pdf",
                            key="dl_bw")
+        st.markdown("**CAD / GIS export** — overlay the K field on your site plan (metres, "
+                    "breakwater centre at origin, structure along Y=0).")
+        cad = st.columns(2)
+        cad[0].download_button("⬇ CAD contours (DXF)",
+                    data=ce.kd_dxf(xs, ys, Z, B, kind="breakwater",
+                                   title=f"TLCDAT breakwater K  T={T}s d={d}m B={B}m theta={ang:.0f}deg"),
+                    file_name="TLCDAT_breakwater_K.dxf", mime="image/vnd.dxf", key="dxf_bw")
+        cad[1].download_button("⬇ K grid (CSV/XYZ)", data=ce.kd_csv(xs, ys, Z),
+                    file_name="TLCDAT_breakwater_K.csv", mime="text/csv", key="csv_bw")
 
 # ============================================================= 4. GAP
 with tabs[3]:
@@ -203,6 +213,15 @@ with tabs[3]:
                            data=make_pdf("gap", T, d, B, theta0, beta_k, xmax, ymax),
                            file_name="TLCDAT_gap_report.pdf", mime="application/pdf",
                            key="dl_gp")
+        st.markdown("**CAD / GIS export** — overlay the K field on your site plan (metres, "
+                    "gap centre at origin, structure along Y=0).")
+        cad = st.columns(2)
+        cad[0].download_button("⬇ CAD contours (DXF)",
+                    data=ce.kd_dxf(xs, ys, Z, B, kind="gap",
+                                   title=f"TLCDAT gap K  T={T}s d={d}m B={B}m theta0={theta0}deg"),
+                    file_name="TLCDAT_gap_K.dxf", mime="image/vnd.dxf", key="dxf_gp")
+        cad[1].download_button("⬇ K grid (CSV/XYZ)", data=ce.kd_csv(xs, ys, Z),
+                    file_name="TLCDAT_gap_K.csv", mime="text/csv", key="csv_gp")
 
 # ============================================================= 5. DOCK
 with tabs[4]:
@@ -268,6 +287,11 @@ one clean, self-contained computational core.
 (no breaking/friction). Gap: normal **and oblique** incidence (paraxial beam-steering by x·sin θ₀,
 most accurate for angles ≲40°) and **solid or permeable** breakwater arms (β/k; real β is
 lossless, |Ra|²+|Ta|²=1). Breakwater/dock modules assume rigid arms.
+
+**CAD / GIS export.** The breakwater and entrance-gap tabs export the K field as an AutoCAD
+**DXF** (labelled contour polylines + structure geometry on colour-coded layers, real metres)
+and as a **CSV / XYZ grid**. Import the DXF into AutoCAD / Civil 3D and overlay it on the site
+plan — the gap/breakwater centre is at the origin, the structure lies along Y = 0, units are metres.
 
 **References** — Penney & Price (1952); Wiegel (1962); SPM (1984) §2; Kriebel & Cox;
 Bowen & McIver (2002); Abramowitz & Stegun (1964) §7.3.
